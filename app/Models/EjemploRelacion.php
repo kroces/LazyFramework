@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 class EjemploRelacion extends ModelSearchable implements LazyModel
 {
     use HasFactory;
+
+    protected $table = 'ejemplorelacions';
+    
     protected $fillable=[
         "nombre",
         "ejemplo_id",

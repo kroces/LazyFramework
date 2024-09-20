@@ -5,7 +5,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/x-icon" href="{{asset(env("PRE_ROUTE")."favicon.jpeg")}}">
+        <link rel="icon" type="image/x-icon" href="{{asset(env("PRE_ROUTE")."spartan.png?v=1.0")}}">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -19,7 +19,7 @@
             <div class="wrapper">
                 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #da0909;">
                     <div class="container">
-                        <a class="navbar-brand" href="/">
+                        <a class="navbar-brand" href="{{ route('home') }}">
                             LazyFramework
                         </a>
                         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">

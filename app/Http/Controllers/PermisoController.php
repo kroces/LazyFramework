@@ -15,6 +15,7 @@ class PermisoController extends Controller
         return view("administracion.usuario.permiso.actualizar", ["data"=>$data, "model"=>$usuario]);
     }
     public function update(Request $request, User $usuario){
+        // dd([$request->input('data'), array_values($request->input()["data"])]);
         $data = array_values($request->input()["data"]);
         foreach($data as $key=>$element){
             if(!isset($element["switch"])){ 

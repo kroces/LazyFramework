@@ -8,6 +8,10 @@ Route::any("", function (){
     return view("index");
 });
 
+Route::get("/", function (){
+    return view("index");
+})->name('home');
+
 Route::get('login', [\App\Http\Controllers\SiteController::class, "login"])->name("login");
 Route::post('login', [\App\Http\Controllers\SiteController::class, "authenticate"]);
 Route::post('logout', [\App\Http\Controllers\SiteController::class, "logout"])->name("logout");
