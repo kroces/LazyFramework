@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ejemplo_relacions', function (Blueprint $table) {
+        Schema::create('rols', function (Blueprint $table) {
             $table->id();
+
             $table->string('nombre');
-            $table->integer('ejemplo_id');
+            $table->text("permisos")->nullable();
+
             $table->softDeletes();
-            $table->timestamp('created_at')->nullable();
+
+            $table->timestamps();
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ejemplo_relacions');
+        Schema::dropIfExists('rols');
     }
 };

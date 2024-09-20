@@ -33,6 +33,31 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('administracion.ejemploRelacion.admin')}}">Demo 2</a>
                                 </li>
+                                @auth
+                                    @if (\App\Tools\Router::multiValidate([
+                                        ["administracion.usuario.admin"],
+                                        ["administracion.rol.admin"],
+                                    ]))
+                                        <li class="nav-item dropdown {{ request()->routeIs('administracion.*')?"active":"" }}">
+                                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administración</a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                                @include('administracion._menu')
+                                            </div>
+                                        </li>
+                                    @endif
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{auth()->user()->email}}</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                            <form method="POST" action="{{route('logout')}}" id="logout">@csrf</form>
+                                            <a class="dropdown-item" href="#" onclick="$('#logout').submit()">Cerrar sesión</a>
+                                        </div>
+                                    </li>
+                                @endauth
+                                @guest
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('login')}}">Iniciar sesión</a>
+                                    </li>
+                                @endguest
                             </ul>
                         </div>
                     </div>
